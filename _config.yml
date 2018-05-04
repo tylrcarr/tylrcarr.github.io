@@ -9,7 +9,7 @@ blog_theme: dark # Or use dark
 # Profile information
 name: Tyler Carr
 tagline: TA at UNC Charlotte
-about-description: A programmer from Charlotte, NC. A lot of other things too. # Add Discription
+about-description: A programmer from Charlotte, NC. Also some other, more interesting stuff. # Add Discription
 pic: me.jpg  # Place a 200x200 picture inside /assets/img/ folder and provide the name of the file below
 
 # Contact links
