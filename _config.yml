@@ -2,7 +2,7 @@ title: Tyler Carr
 description: > # this means to ignore newlines until "baseurl:"
         The personal site for Tyler Carr
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://tylrcarr.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: ':title/'
 blog_theme: dark # Or use dark
 

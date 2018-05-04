@@ -21,12 +21,19 @@ But in the end, I'm doing this for myself. If nobody reads this, I won't care. I
 I had this talk with my subconcious. It went like this:
 
 <span style="color:orange;">myself</span>
+
 <span style="color:pink;">subconcious</span>
+
 > <span style="color:orange;">what's up?</span>
+
 > <span style="color:pink;">you should really start blogging</span>
+
 > <span style="color:orange;">why's that?</span>
+
 > <span style="color:pink;">I'll get to come out and the line of communication will be easier</span>
+
 > <span style="color:orange;">I'll consider it</span>
+
 > <span style="color:pink;">Cool</span>
 
 So I did consider it. And I considered all of the aforementioned facts. I thought through it.
