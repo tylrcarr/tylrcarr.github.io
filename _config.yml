@@ -10,7 +10,7 @@ blog_theme: dark # Or use dark
 name: Tyler Carr
 tagline: TA at UNC Charlotte
 about-description: # Add Discription
-pic:   # Place a 200x200 picture inside /assets/img/ folder and provide the name of the file below
+pic: me.jpg  # Place a 200x200 picture inside /assets/img/ folder and provide the name of the file below
 
 # Contact links
 email: tylrcarr@gmail.com # Add your Email address
@@ -21,7 +21,8 @@ github: tylrcarr # Add your Github handle
 twitter: '@tylrcarr' # Add your Twitter handle
 
 # Tracker
-analytics:
+analytics: UA-47694600-1
+
 
 # Comments
 discus-identifier: # Add your Disqus identifier
