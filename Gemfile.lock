@@ -58,13 +58,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (= 3.4.0)
   jekyll-assets
   jekyll-feed (~> 0.6)
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.0.0p648
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.14.3
+   1.16.1
