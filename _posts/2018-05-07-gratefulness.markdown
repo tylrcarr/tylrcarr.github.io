@@ -36,7 +36,7 @@ At least that's what I think.
 
 the feeling of being grateful for everything you have can save you. 
 
-If you're feeling down, think about what you DO have rather than what you don't.
+If you're feeling down, think about what you *do* have rather than what you don't.
 
 If you feel your life spiraling out of control, think about what you do have a strong grasp and devote more time to that until everything normalizes.
 
