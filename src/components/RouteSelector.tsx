@@ -12,7 +12,7 @@ const WheelContainer = styled(Box)(({theme}) => ({
     maxWidth: "500px", // Max width to prevent too large on big screens
     maxHeight: "500px", // Max height to prevent too large on big screens
     borderRadius: "50%",
-    background: theme.palette.background.default,
+    backgroundColor: "transparent",
     boxShadow: "0",
     margin: "0 auto", // Center the wheel horizontally
 }));
