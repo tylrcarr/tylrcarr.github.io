@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import {Button, Container, createTheme, CssBaseline, ThemeProvider, Typography} from "@mui/material";
+import {Container, createTheme, CssBaseline, ThemeProvider} from "@mui/material";
+import {RouteProvider} from "./hooks/use-router.hook";
+import {Router} from "./Router";
+import {RouteSelector} from "./components/RouteSelector";
 
 const theme = createTheme({
     palette: {
@@ -9,15 +12,16 @@ const theme = createTheme({
 })
 
 function App() {
-    const [count, setCount] = useState<number>(0);
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Container>
-                <Typography variant="body1">{count}</Typography>
-                <Button onClick={() => setCount(prev => prev + 1)}>click</Button>
-            </Container>
-        </ThemeProvider>
+        <RouteProvider>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <RouteSelector />
+                <Container style={{marginTop: "60px"}}>
+                    <Router />
+                </Container>
+            </ThemeProvider>
+        </RouteProvider>
     );
 }
 
