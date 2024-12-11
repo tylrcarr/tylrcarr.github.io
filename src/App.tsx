@@ -4,22 +4,21 @@ import {Container, createTheme, CssBaseline, ThemeProvider} from "@mui/material"
 import {RouteProvider} from "./hooks/use-router.hook";
 import {Router} from "./Router";
 import {RouteSelector} from "./components/RouteSelector";
+import theme from "./theme";
+import {SnackbarProvider} from "./hooks/useSnackbarQueue.hook";
 
-const theme = createTheme({
-    palette: {
-        mode: "dark",
-    }
-})
 
 function App() {
     return (
         <RouteProvider>
             <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <RouteSelector />
-                <Container style={{marginTop: "60px"}}>
-                    <Router />
-                </Container>
+                <SnackbarProvider>
+                    <CssBaseline />
+                    <RouteSelector />
+                    <Container style={{marginTop: "60px"}}>
+                        <Router />
+                    </Container>
+                </SnackbarProvider>
             </ThemeProvider>
         </RouteProvider>
     );

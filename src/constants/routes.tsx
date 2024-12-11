@@ -8,6 +8,7 @@ import BuildIcon from '@mui/icons-material/Build';
 import {ToolsPage} from "../pages/ToolsPage";
 import {AboutPage} from "../pages/AboutPage";
 import ContactPageIcon from '@mui/icons-material/ContactPage';
+
 const HOME_ROUTE: Route = {
     id: "home",
     label: "Home",
@@ -38,7 +39,7 @@ const ABOUT_ROUTE: Route = {
 const ROUTES: Route[] = [
     HOME_ROUTE,
     PHOTOS_ROUTE,
-    TOOLS_ROUTE,
+    // TOOLS_ROUTE,
     ABOUT_ROUTE
 ];
 
