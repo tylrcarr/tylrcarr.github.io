@@ -1,16 +1,16 @@
 import React from "react";
-import { Box, ImageList, ImageListItem, Typography, useTheme } from "@mui/material";
+import {Box, ImageList, ImageListItem, Typography, useTheme} from "@mui/material";
 
 type ImageGalleryProps = {
     ledger: Record<string, { files: string[]; text: string }>;
     onImageClick: (date: string) => void;
 };
 
-export const ImageGallery: React.FC<ImageGalleryProps> = ({ ledger, onImageClick }) => {
+export const ImageGallery: React.FC<ImageGalleryProps> = ({ledger, onImageClick}) => {
     const theme = useTheme();
 
     return (
-        <ImageList cols={3}>
+        <ImageList cols={3} gap={1}>
             {Object.entries(ledger).map(([date, entry]) => (
                 <ImageListItem
                     key={date}
@@ -41,48 +41,38 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ ledger, onImageClick
                             width: "100%",
                             bgcolor: theme.palette.background.default,
                             color: theme.palette.text.primary,
-                            opacity: 0.9,
-                            p: theme.spacing(1),
+                            opacity: 0.85,
+                            p: theme.spacing(0.5),
                             display: "flex",
-                            flexDirection: "column",
-                            gap: theme.spacing(0.5),
+                            justifyContent: "space-between",
+                            alignItems: "center",
                         }}
                     >
-                        {/* Date and Photo Count */}
-                        <Box
-                            sx={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Typography
-                                variant="caption"
-                                sx={{
-                                    color: theme.palette.primary.main,
-                                    fontWeight: theme.typography.fontWeightBold,
-                                }}
-                            >
-                                {date}
-                            </Typography>
-                            <Typography
-                                variant="caption"
-                                sx={{
-                                    color: theme.palette.text.secondary,
-                                }}
-                            >
-                                {entry.files.length} photo{entry.files.length > 1 ? "s" : ""}
-                            </Typography>
-                        </Box>
-
-                        {/* Text Description */}
+                        {/* Date */}
                         <Typography
                             variant="caption"
                             sx={{
-                                color: theme.palette.secondary.main,
+                                color: theme.palette.primary.main,
+                                fontWeight: theme.typography.fontWeightBold,
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
                             }}
                         >
-                            {entry.text}
+                            {date}
+                        </Typography>
+
+                        {/* Photo Count */}
+                        <Typography
+                            variant="caption"
+                            sx={{
+                                color: theme.palette.text.secondary,
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                            }}
+                        >
+                            {entry.files.length} photo{entry.files.length > 1 ? "s" : ""}
                         </Typography>
                     </Box>
                 </ImageListItem>
