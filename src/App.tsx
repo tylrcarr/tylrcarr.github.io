@@ -1,26 +1,26 @@
 import React from 'react';
 import './App.css';
-import {Container, createTheme, CssBaseline, ThemeProvider} from "@mui/material";
-import {RouteProvider} from "./hooks/use-router.hook";
-import {Router} from "./Router";
+import {Container, CssBaseline, ThemeProvider} from "@mui/material";
 import {RouteSelector} from "./components/RouteSelector";
 import theme from "./theme";
 import {SnackbarProvider} from "./hooks/useSnackbarQueue.hook";
+import {AppRouter} from "./AppRouter";
+import {HashRouter} from "react-router-dom";
 
 
 function App() {
     return (
-        <RouteProvider>
+        <HashRouter>
             <ThemeProvider theme={theme}>
                 <SnackbarProvider>
                     <CssBaseline />
                     <RouteSelector />
-                    <Container style={{marginTop: "60px"}}>
-                        <Router />
+                    <Container>
+                        <AppRouter />
                     </Container>
                 </SnackbarProvider>
             </ThemeProvider>
-        </RouteProvider>
+        </HashRouter>
     );
 }
 

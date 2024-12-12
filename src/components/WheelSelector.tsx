@@ -55,12 +55,12 @@ type WheelSelectorProps = {
 export const WheelSelector: React.FC<WheelSelectorProps> = ({ items, onClose }) => {
     const theme = useTheme();
     const [outerRadius, setOuterRadius] = useState(() =>
-        Math.min(window.innerWidth, window.innerHeight) / 2 - 50
+        Math.min(window.innerWidth, window.innerHeight) / 2 - INNER_RADIUS
     );
 
     useEffect(() => {
         const handleResize = () => {
-            setOuterRadius(Math.min(window.innerWidth, window.innerHeight) / 2 - 50);
+            setOuterRadius(Math.min(window.innerWidth, window.innerHeight) / 2 - INNER_RADIUS);
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);

@@ -1,5 +1,5 @@
 import React from "react";
-import {Route} from "../hooks/use-router.hook";
+import {AppRoute} from "../hooks/use-router.hook";
 import {HomePage} from "../pages/HomePage";
 import {PhotosPage} from "../pages/PhotosPage";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
@@ -9,34 +9,38 @@ import {ToolsPage} from "../pages/ToolsPage";
 import {AboutPage} from "../pages/AboutPage";
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 
-const HOME_ROUTE: Route = {
+const HOME_ROUTE: AppRoute = {
     id: "home",
+    path: "/",
     label: "Home",
     icon: <HouseIcon />,
-    render: () => <HomePage />,
+    element: <HomePage />,
 };
 
-const PHOTOS_ROUTE: Route = {
+const PHOTOS_ROUTE: AppRoute = {
     id: "photos",
+    path: "/photos",
     label: "Photos",
     icon: <PhotoCameraIcon />,
-    render: () => <PhotosPage />,
+    element: <PhotosPage />,
 };
 
-const TOOLS_ROUTE: Route = {
+const TOOLS_ROUTE: AppRoute = {
     id: "tools",
+    path: "/tools",
     label: "Tools",
     icon: <BuildIcon />,
-    render: () => <ToolsPage />,
+    element: <ToolsPage />,
 };
-const ABOUT_ROUTE: Route = {
+const ABOUT_ROUTE: AppRoute = {
     id: "about",
+    path: "/about",
     label: "About Me",
     icon: <ContactPageIcon />,
-    render: () => <AboutPage />,
+    element: <AboutPage />,
 }
 
-const ROUTES: Route[] = [
+const ROUTES: AppRoute[] = [
     HOME_ROUTE,
     PHOTOS_ROUTE,
     // TOOLS_ROUTE,

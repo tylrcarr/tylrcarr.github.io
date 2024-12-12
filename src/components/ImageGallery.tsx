@@ -22,7 +22,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ ledger, onImageClick
                 >
                     {/* Dynamically Constructed Image Path */}
                     <img
-                        src={`/public-photos/${date}/${entry.files[0]}`}
+                        src={`/public-photos/${date}/thumbnail.png`}
                         alt={entry.text}
                         loading="lazy"
                         style={{

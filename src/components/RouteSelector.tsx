@@ -4,16 +4,18 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { WheelSelector } from "./WheelSelector";
 import { ROUTES } from "../constants/routes";
 import { useRouter } from "../hooks/use-router.hook";
+import {useNavigate} from "react-router-dom";
 
 export const RouteSelector: React.FC = () => {
     const [open, setOpen] = useState(false);
     const { setCurrent } = useRouter();
+    const navigate = useNavigate();
 
     const items = ROUTES.map((route) => ({
         label: route.label,
         icon: route.icon,
         onClick: () => {
-            setCurrent(route.id);
+            navigate(route.path);
             setOpen(false);
         },
     }));
@@ -22,7 +24,7 @@ export const RouteSelector: React.FC = () => {
         <>
             <Fab
                 color="primary"
-                sx={{ position: "absolute", top: 16, left: 16 }}
+                sx={{ position: "fixed", top: 16, left: 16 }}
                 onClick={() => setOpen(true)}
             >
                 <MenuIcon />

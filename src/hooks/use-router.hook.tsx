@@ -1,15 +1,16 @@
 import React, {createContext, ReactNode, useContext, useState} from "react";
 import {HOME_ROUTE, ROUTES} from "../constants/routes";
 
-export type Route = {
+export type AppRoute = {
     id: string;
+    path: string;
     label: string;
     icon: ReactNode;
-    render: () => ReactNode;
+    element: ReactNode;
 }
 
 type RouteState = {
-    current: Route;
+    current: AppRoute;
     setCurrent: (routeId: string) => void;
 }
 
