@@ -44,7 +44,7 @@ const ROUTES: AppRoute[] = [
     HOME_ROUTE,
     PHOTOS_ROUTE,
     // TOOLS_ROUTE,
-    ABOUT_ROUTE
+    // ABOUT_ROUTE
 ];
 
 export {ROUTES, HOME_ROUTE};
