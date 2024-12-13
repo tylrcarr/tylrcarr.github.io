@@ -25,6 +25,7 @@ const PHOTOS_ROUTE: AppRoute = {
     element: <PhotosPage />,
 };
 
+
 const TOOLS_ROUTE: AppRoute = {
     id: "tools",
     path: "/tools",
