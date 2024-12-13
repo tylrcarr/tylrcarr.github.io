@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import { Modal, Backdrop, Fab } from "@mui/material";
+import React, {useState} from "react";
+import {Backdrop, Fab, Modal} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { WheelSelector } from "./WheelSelector";
-import { ROUTES } from "../constants/routes";
-import { useRouter } from "../hooks/use-router.hook";
+import {WheelSelector} from "./WheelSelector";
+import {ROUTES} from "../constants/routes";
 import {useNavigate} from "react-router-dom";
 
 export const RouteSelector: React.FC = () => {
     const [open, setOpen] = useState(false);
-    const { setCurrent } = useRouter();
     const navigate = useNavigate();
 
     const items = ROUTES.map((route) => ({

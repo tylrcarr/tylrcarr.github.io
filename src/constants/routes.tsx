@@ -26,20 +26,20 @@ const PHOTOS_ROUTE: AppRoute = {
 };
 
 
-const TOOLS_ROUTE: AppRoute = {
-    id: "tools",
-    path: "/tools",
-    label: "Tools",
-    icon: <BuildIcon />,
-    element: <ToolsPage />,
-};
-const ABOUT_ROUTE: AppRoute = {
-    id: "about",
-    path: "/about",
-    label: "About Me",
-    icon: <ContactPageIcon />,
-    element: <AboutPage />,
-}
+// const TOOLS_ROUTE: AppRoute = {
+//     id: "tools",
+//     path: "/tools",
+//     label: "Tools",
+//     icon: <BuildIcon />,
+//     element: <ToolsPage />,
+// };
+// const ABOUT_ROUTE: AppRoute = {
+//     id: "about",
+//     path: "/about",
+//     label: "About Me",
+//     icon: <ContactPageIcon />,
+//     element: <AboutPage />,
+// }
 
 const ROUTES: AppRoute[] = [
     HOME_ROUTE,

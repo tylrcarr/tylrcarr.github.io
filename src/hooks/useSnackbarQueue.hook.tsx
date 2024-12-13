@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { Box, Typography, IconButton, useTheme } from "@mui/material";
+import {Box, Typography, IconButton, useTheme, Theme} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 export enum SnackbarColor {
@@ -28,26 +28,28 @@ export const useSnackbarQueue = (): SnackbarContextType => {
     return context;
 };
 
+const getColorFromEnum = (color: SnackbarColor, theme: Theme) => {
+    switch (color) {
+        case SnackbarColor.Success:
+            return theme.palette.success.main;
+        case SnackbarColor.Error:
+            return theme.palette.error.main;
+        case SnackbarColor.Info:
+            return theme.palette.info.main;
+        default:
+            return theme.palette.primary.main;
+    }
+};
+
 export const SnackbarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const theme = useTheme();
     const [snackbars, setSnackbars] = useState<Snackbar[]>([]);
 
-    const getColorFromEnum = (color: SnackbarColor) => {
-        switch (color) {
-            case SnackbarColor.Success:
-                return theme.palette.success.main;
-            case SnackbarColor.Error:
-                return theme.palette.error.main;
-            case SnackbarColor.Info:
-                return theme.palette.info.main;
-            default:
-                return theme.palette.primary.main;
-        }
-    };
+
 
     const addSnackbar = useCallback((message: string, color: SnackbarColor) => {
         const id = Date.now();
-        const bgColor = getColorFromEnum(color);
+        const bgColor = getColorFromEnum(color, theme);
         setSnackbars((prev) => [...prev, { id, message, color: bgColor }]);
 
         // Auto-dismiss after 3 seconds
