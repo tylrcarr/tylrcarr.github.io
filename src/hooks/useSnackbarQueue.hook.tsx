@@ -56,7 +56,7 @@ export const SnackbarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         setTimeout(() => {
             setSnackbars((prev) => prev.filter((snackbar) => snackbar.id !== id));
         }, 3000);
-    }, []);
+    }, [theme]);
 
     const removeSnackbar = useCallback((id: number) => {
         setSnackbars((prev) => prev.filter((snackbar) => snackbar.id !== id));
