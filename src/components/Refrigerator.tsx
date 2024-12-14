@@ -1,7 +1,14 @@
 // Refrigerator.tsx
 import React from 'react';
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import { PhotoCamera, ChatBubbleOutline, MusicNote, FormatQuote } from '@mui/icons-material';
+import {
+    PhotoCamera,
+    ChatBubbleOutline,
+    MusicNote,
+    FormatQuote,
+    CurrencyBitcoin,
+    BuildCircleOutlined
+} from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 import Polaroid from './Polaroid'; // Adjust the path as necessary
 
@@ -100,12 +107,12 @@ const Refrigerator: React.FC = () => {
                 onClick={() => navigate("/photos")}
             />
             <Polaroid
-                icon={ChatBubbleOutline}
-                label="Thoughts"
+                icon={BuildCircleOutlined}
+                label="Tools"
                 color="green"
-                position={{ top: '50%', left: '30%' }}
-                rotation={3}
-                onClick={() => alert('Clicked on Thoughts')}
+                position={{ top: '60%', left: '30%' }}
+                rotation={-5}
+                onClick={() => navigate("/tools")}
             />
             <Polaroid
                 icon={MusicNote}

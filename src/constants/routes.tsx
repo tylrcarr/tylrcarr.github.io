@@ -6,8 +6,9 @@ import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import PersonIcon from '@mui/icons-material/Person';
 import HouseIcon from '@mui/icons-material/House';
 import {ArtPage} from "../pages/ArtPage";
-import {MusicNote} from "@mui/icons-material";
+import {Build, MusicNote} from "@mui/icons-material";
 import {MusicPage} from "../pages/MusicPage";
+import {ToolsPage} from "../pages/ToolsPage";
 
 const HOME_ROUTE: AppRoute = {
     id: "home",
@@ -44,13 +45,15 @@ const MUSIC_ROUTE: AppRoute = {
 };
 
 
-// const TOOLS_ROUTE: AppRoute = {
-//     id: "tools",
-//     path: "/tools",
-//     label: "Tools",
-//     icon: <BuildIcon />,
-//     element: <ToolsPage />,
-// };
+const TOOLS_ROUTE: AppRoute = {
+    id: "tools",
+    path: "/tools",
+    label: "Tools",
+    icon: <Build />,
+    element: <ToolsPage />,
+    hideFromMainNav: true
+};
+
 // const ABOUT_ROUTE: AppRoute = {
 //     id: "about",
 //     path: "/about",
@@ -64,7 +67,7 @@ const ROUTES: AppRoute[] = [
     PHOTOS_ROUTE,
     ME_ROUTE,
     MUSIC_ROUTE,
-    // TOOLS_ROUTE,
+    TOOLS_ROUTE,
     // ABOUT_ROUTE
 ];
 
