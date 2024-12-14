@@ -1,10 +1,10 @@
 // MusicPage.tsx
-import React, { FC } from "react";
-import { Container, Box, useTheme } from "@mui/material";
-import { styled, Theme } from "@mui/material/styles";
+import React, {FC} from "react";
+import {Container, Box, useTheme} from "@mui/material";
+import {styled, Theme} from "@mui/material/styles";
 
 // Styled Container to control overall layout
-const StyledContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
+const StyledContainer = styled(Container)(({theme}: { theme: Theme }) => ({
     display: "flex",
     flexDirection: "column",
     height: "100vh", // Full viewport height
@@ -14,7 +14,7 @@ const StyledContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
 }));
 
 // Styled Box to make iframe responsive and take full height
-const IframeWrapper = styled(Box)(({ theme }: { theme: Theme }) => ({
+const IframeWrapper = styled(Box)(({theme}: { theme: Theme }) => ({
     flexGrow: 1, // Allows the iframe to take up remaining space
     display: "flex",
     justifyContent: "center",
@@ -22,11 +22,12 @@ const IframeWrapper = styled(Box)(({ theme }: { theme: Theme }) => ({
 }));
 
 // Styled iframe for responsiveness
-const ResponsiveIframe = styled("iframe")(({ theme }: { theme: Theme }) => ({
+const ResponsiveIframe = styled("iframe")(({theme}: { theme: Theme }) => ({
     borderRadius: "12px",
     width: "100%",
     height: "100%",
     maxWidth: "800px", // Limits the width on larger screens
+    aspectRatio: "16 / 9", // Maintains aspect ratio
     [theme.breakpoints.down("sm")]: {
         maxWidth: "100%", // Full width on small screens
     },
@@ -34,20 +35,16 @@ const ResponsiveIframe = styled("iframe")(({ theme }: { theme: Theme }) => ({
     boxShadow: theme.shadows[5], // Use theme's shadow
 }));
 
-export const MusicPage: FC = () => {
-    const theme = useTheme();
-
-    return (
-        <StyledContainer maxWidth="lg">
-            <IframeWrapper>
-                <ResponsiveIframe
-                    src="https://open.spotify.com/embed/playlist/37i9dQZF1EP6YuccBxUcC1?utm_source=generator"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Playlist"
-                ></ResponsiveIframe>
-            </IframeWrapper>
-        </StyledContainer>
-    );
-};
+export const MusicPage: FC = () => (
+    <StyledContainer maxWidth="lg">
+        <IframeWrapper>
+            <ResponsiveIframe
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1EppESoXxEQuhU?utm_source=generator&theme=0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                allowFullScreen
+                title="Spotify Playlist"
+            ></ResponsiveIframe>
+        </IframeWrapper>
+    </StyledContainer>
+);
