@@ -1,8 +1,10 @@
+// PhotoModal.tsx
 import React from "react";
-import {Dialog,} from "@mui/material";
-import {PhotoSlider} from "react-photo-view";
+import { Dialog, GlobalStyles } from "@mui/material";
+import { PhotoSlider } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import {DataType} from "react-photo-view/dist/types";
+import { DataType } from "react-photo-view/dist/types";
+import { useTheme } from "@mui/material/styles";
 
 type PhotoModalProps = {
     onClose: () => void;
@@ -10,18 +12,38 @@ type PhotoModalProps = {
     text: string;
 };
 
-export const PhotoModal: React.FC<PhotoModalProps> = ({onClose, photos, text}) => {
+export const PhotoModal: React.FC<PhotoModalProps> = ({ onClose, photos, text }) => {
+    const theme = useTheme();
 
-    const images: DataType[] = photos.map((photo, index) => ({key: index, src: photo}));
+    const images: DataType[] = photos.map((photo, index) => ({ key: index, src: photo }));
+
+    const customStyles = {
+        ".PhotoView__PhotoWrap": {
+            backgroundColor: theme.palette.background.default,
+        },
+    };
+
     return (
-        <Dialog fullScreen open={!!photos} onClose={onClose}>
-            <PhotoSlider
-                images={images}
-                toolbarRender={() => text}
-                visible={true}
+        <>
+            <GlobalStyles styles={customStyles} />
+            <Dialog
+                fullScreen
+                open={photos.length > 0}
                 onClose={onClose}
-            />
-
-        </Dialog>
+                PaperProps={{
+                    style: {
+                        backgroundColor: 'transparent',
+                        boxShadow: 'none',
+                    },
+                }}
+            >
+                <PhotoSlider
+                    images={images}
+                    toolbarRender={() => text}
+                    visible={true}
+                    onClose={onClose}
+                />
+            </Dialog>
+        </>
     );
 };

@@ -7,6 +7,7 @@ export type AppRoute = {
     label: string;
     icon: ReactNode;
     element: ReactNode;
+    hideFromMainNav?: boolean;
 }
 
 type RouteState = {
