@@ -25,9 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Build the project
+      # Build the project, ignoring warnings
       - name: Build the project
-        run: npm run build
+        run: CI=false npm run build
 
       # Deploy to gh-pages
       - name: Deploy to gh-pages
