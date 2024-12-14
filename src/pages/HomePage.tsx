@@ -1,37 +1,26 @@
-import React from "react";
-import { Box, Typography, IconButton } from "@mui/material";
+import React, {useEffect, useState} from "react";
+import {Box, IconButton, Typography} from "@mui/material";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
-import { useSnackbarQueue, SnackbarColor } from "../hooks/useSnackbarQueue.hook";
-
-const POSITIVE_RESPONSES = [
-    "Hey, thanks for that",
-    "Appreciate it",
-    "Thanks :)",
-    "Glad you think so!",
-    "Means a lot, thanks!"
-];
-
-const NEGATIVE_RESPONSES = [
-    "If you're trying to be mean, it's kind of working",
-    ":/",
-    "Noted. You're on my shit list",
-    "Hey, what the heck? :(",
-    "I'm gonna ruminate on this later"
-];
-
+import {FeedbackCounts, FeedbackService} from "../services/FeedbackService";
 
 export const HomePage: React.FC = () => {
-    const { addSnackbar } = useSnackbarQueue();
+    const [feedbackCounts, setFeedbackCounts] = useState<FeedbackCounts>({ thumbs_up: 0, thumbs_down: 0 });
 
-    const handlePositiveClick = () => {
-        const message = POSITIVE_RESPONSES[Math.floor(Math.random() * POSITIVE_RESPONSES.length)];
-        addSnackbar(message, SnackbarColor.Success);
-    };
+    // Load feedback counts
+    useEffect(() => {
+        (async () => setFeedbackCounts(await FeedbackService.getCounts()))();
+    }, []);
 
-    const handleNegativeClick = () => {
-        const message = NEGATIVE_RESPONSES[Math.floor(Math.random() * NEGATIVE_RESPONSES.length)];
-        addSnackbar(message, SnackbarColor.Error);
+    // Handle feedback actions
+    const handleFeedback = async (type: "thumbs_up" | "thumbs_down") => {
+        try {
+            await FeedbackService.submit(type);
+            const counts = await FeedbackService.getCounts();
+            setFeedbackCounts(counts);
+        } catch (error) {
+            console.error("Error handling feedback:", error);
+        }
     };
 
     return (
@@ -55,24 +44,30 @@ export const HomePage: React.FC = () => {
                 This is a space I built for my thoughts, photos, and projects. Thanks for visiting, leave feedback below.
             </Typography>
             <Box sx={{ display: "flex", gap: 3 }}>
-                <IconButton
-                    color="primary"
-                    onClick={handlePositiveClick}
-                    sx={{
-                        "&:hover": { color: "success.main" },
-                    }}
-                >
-                    <ThumbUpAltIcon />
-                </IconButton>
-                <IconButton
-                    color="primary"
-                    onClick={handleNegativeClick}
-                    sx={{
-                        "&:hover": { color: "error.main" },
-                    }}
-                >
-                    <ThumbDownAltIcon />
-                </IconButton>
+                <Box sx={{ textAlign: "center" }}>
+                    <IconButton
+                        color="primary"
+                        onClick={() => handleFeedback("thumbs_up")}
+                        sx={{
+                            "&:hover": { color: "success.main" },
+                        }}
+                    >
+                        <ThumbUpAltIcon />
+                    </IconButton>
+                    <Typography variant="body1">{feedbackCounts.thumbs_up}</Typography>
+                </Box>
+                <Box sx={{ textAlign: "center" }}>
+                    <IconButton
+                        color="primary"
+                        onClick={() => handleFeedback("thumbs_down")}
+                        sx={{
+                            "&:hover": { color: "error.main" },
+                        }}
+                    >
+                        <ThumbDownAltIcon />
+                    </IconButton>
+                    <Typography variant="body1">{feedbackCounts.thumbs_down}</Typography>
+                </Box>
             </Box>
         </Box>
     );

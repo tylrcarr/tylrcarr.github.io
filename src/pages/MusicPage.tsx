@@ -41,11 +41,11 @@ export const MusicPage: FC = () => {
         <StyledContainer maxWidth="lg">
             <IframeWrapper>
                 <ResponsiveIframe
-                    src="https://open.spotify.com/embed/playlist/37i9dQZF1FoyQGyinuuvRu?utm_source=generator"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1EP6YuccBxUcC1?utm_source=generator"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                     allowFullScreen
-                    title="TySpace Spotify Playlist"
+                    title="Spotify Playlist"
                 ></ResponsiveIframe>
             </IframeWrapper>
         </StyledContainer>
