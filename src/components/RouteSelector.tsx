@@ -9,7 +9,7 @@ export const MenuButton: React.FC<{ onClick: () => void }> = ({onClick}) => {
     return (
         <Box
             sx={{
-                position: "fixed",
+                position: "absolute",
                 bottom: 16,
                 left: 16,
                 zIndex: 10,

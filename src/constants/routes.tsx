@@ -24,7 +24,6 @@ const PHOTOS_ROUTE: AppRoute = {
     label: "Photos",
     icon: <PhotoCameraIcon />,
     element: <PhotosPage />,
-    hideFromMainNav: true
 };
 
 const ME_ROUTE: AppRoute = {
