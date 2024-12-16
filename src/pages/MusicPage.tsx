@@ -1,7 +1,7 @@
-import React, { FC, useState } from "react";
-import { Container, Box, CircularProgress } from "@mui/material";
-import { styled, Theme } from "@mui/material/styles";
-import { AnimatePresence, motion } from "framer-motion";
+import React, {FC, useState} from "react";
+import {Box, CircularProgress, Container} from "@mui/material";
+import {styled, Theme} from "@mui/material/styles";
+import {AnimatePresence, motion} from "framer-motion";
 
 const StyledContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
     display: "flex",
@@ -11,7 +11,10 @@ const StyledContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
     padding: theme.spacing(2),
     boxSizing: "border-box",
     margin: 0, // Ensure no extra space outside the container
+    marginLeft: "auto",
+    marginRight: "auto",
     marginTop: "4vh",
+    marginBottom: 0,
     overflow: "hidden", // Prevent scroll bars
     backgroundColor: theme.palette.background.default, // Use theme's background
 }));

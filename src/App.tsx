@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Container, CssBaseline, ThemeProvider} from "@mui/material";
+import {CssBaseline, ThemeProvider} from "@mui/material";
 import {RouteSelector} from "./components/RouteSelector";
 import theme from "./theme";
 import {SnackbarProvider} from "./hooks/useSnackbarQueue.hook";

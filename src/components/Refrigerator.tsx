@@ -1,15 +1,8 @@
 // Refrigerator.tsx
 import React from 'react';
-import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import {
-    PhotoCamera,
-    ChatBubbleOutline,
-    MusicNote,
-    FormatQuote,
-    CurrencyBitcoin,
-    BuildCircleOutlined
-} from '@mui/icons-material';
-import { useNavigate } from "react-router-dom";
+import {Box, Typography, useMediaQuery, useTheme} from '@mui/material';
+import {BuildCircleOutlined, FormatQuote, MusicNote, PhotoCamera} from '@mui/icons-material';
+import {useNavigate} from "react-router-dom";
 import Polaroid from './Polaroid'; // Adjust the path as necessary
 
 const Refrigerator: React.FC = () => {

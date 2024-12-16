@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Box, useTheme } from "@mui/material";
-import { styled } from "@mui/system";
-import { calculatePath } from "../utils/math";
+import React, {useEffect, useState} from "react";
+import {Box} from "@mui/material";
+import {styled} from "@mui/system";
+import {calculatePath} from "../utils/math";
 
 // Halved times
 const INNER_RADIUS = 50;
@@ -156,7 +156,6 @@ export const WheelSelector: React.FC<WheelSelectorProps> = ({
                                                                 onRequestClose,
                                                                 onAnimationEnd,
                                                             }) => {
-    const theme = useTheme();
     const [outerRadius, setOuterRadius] = useState(() =>
         Math.min(window.innerWidth, window.innerHeight) / 2 - INNER_RADIUS
     );
