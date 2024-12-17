@@ -1,0 +1,16 @@
+import React from "react";
+import {Container, Typography} from "@mui/material";
+import {DogPhotoGallery} from "../components/DogPhotoGallery";
+
+export const DogsPage: React.FC = () => {
+    return (
+        <div style={{height: "100vh", overflowY: "auto"}}>
+            <Container>
+                <Typography variant="h4" align="center" gutterBottom>
+                    dog(s)
+                </Typography>
+                <DogPhotoGallery/>
+            </Container>
+        </div>
+    );
+};

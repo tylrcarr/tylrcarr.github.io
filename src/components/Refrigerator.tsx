@@ -1,9 +1,10 @@
 // Refrigerator.tsx
 import React from 'react';
 import {Box, Typography, useMediaQuery, useTheme} from '@mui/material';
-import {BuildCircleOutlined, FormatQuote, MusicNote, PhotoCamera} from '@mui/icons-material';
+import {BuildCircleOutlined, MusicNote, PhotoCamera} from '@mui/icons-material';
 import {useNavigate} from "react-router-dom";
-import Polaroid from './Polaroid'; // Adjust the path as necessary
+import Polaroid from './Polaroid';
+import PetsIcon from "@mui/icons-material/Pets"; // Adjust the path as necessary
 
 const Refrigerator: React.FC = () => {
     const theme = useTheme();
@@ -95,7 +96,7 @@ const Refrigerator: React.FC = () => {
                 icon={PhotoCamera}
                 label="Photography"
                 color="blue"
-                position={{ top: '20%', left: '10%' }}
+                position={{top: '20%', left: '10%'}}
                 rotation={-5}
                 onClick={() => navigate("/photos")}
             />
@@ -103,7 +104,7 @@ const Refrigerator: React.FC = () => {
                 icon={BuildCircleOutlined}
                 label="Tools"
                 color="green"
-                position={{ top: '60%', left: '30%' }}
+                position={{top: '60%', left: '30%'}}
                 rotation={-5}
                 onClick={() => navigate("/tools")}
             />
@@ -111,17 +112,17 @@ const Refrigerator: React.FC = () => {
                 icon={MusicNote}
                 label="Music"
                 color="purple"
-                position={{ top: '60%', left: '70%' }}
+                position={{top: '60%', left: '70%'}}
                 rotation={-8}
                 onClick={() => navigate("/music")}
             />
             <Polaroid
-                icon={FormatQuote}
-                label="Quotes"
+                icon={PetsIcon}
+                label="Dogs"
                 color="orange"
-                position={{ top: '10%', left: '80%' }}
+                position={{top: '10%', left: '80%'}}
                 rotation={4}
-                onClick={() => alert('Clicked on Quotes')}
+                onClick={() => navigate("/dogs")}
             />
         </Box>
     );

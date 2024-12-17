@@ -1,15 +1,9 @@
 // Polaroid.tsx
-import React, { useState, useRef } from 'react';
-import {
-    Box,
-    Tooltip,
-    ClickAwayListener,
-    useMediaQuery,
-    useTheme,
-} from '@mui/material';
+import React, {useRef, useState} from 'react';
+import {Box, ClickAwayListener, Tooltip, useMediaQuery, useTheme,} from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { keyframes } from '@mui/system';
-import { SvgIconProps } from '@mui/material/SvgIcon';
+import {keyframes} from '@mui/system';
+import {SvgIconProps} from '@mui/material/SvgIcon';
 
 type PolaroidProps = {
     icon: React.ComponentType<SvgIconProps>;
@@ -195,7 +189,7 @@ const Polaroid: React.FC<PolaroidProps> = ({
                             borderRadius: '4px',
                         }}
                     >
-                        <Icon sx={{ fontSize: '95%', color }} />
+                        <Icon sx={{fontSize: '95%', color}}/>
                     </Box>
                     {/* Animated Arrow Indicator */}
                     {isActive && (
@@ -210,7 +204,7 @@ const Polaroid: React.FC<PolaroidProps> = ({
                                 pointerEvents: 'none', // Allow clicks to pass through
                             }}
                         >
-                            <ArrowDownwardIcon sx={{ color, fontSize: 30 }} />
+                            <ArrowDownwardIcon sx={{color, fontSize: 30}}/>
                         </Box>
                     )}
                 </Box>

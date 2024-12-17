@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Box, IconButton, Typography } from "@mui/material";
+import React, {useEffect, useState} from "react";
+import {Box, IconButton, Typography} from "@mui/material";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
-import { FeedbackCounts, FeedbackService } from "../services/FeedbackService";
-import { SnackbarColor, useSnackbarQueue } from "../hooks/useSnackbarQueue.hook";
-import { RESPONSES } from "../constants/responses";
+import {FeedbackCounts, FeedbackService} from "../services/FeedbackService";
+import {SnackbarColor, useSnackbarQueue} from "../hooks/useSnackbarQueue.hook";
+import {RESPONSES} from "../constants/responses";
 
 export const HomePage: React.FC = () => {
     const [feedbackCounts, setFeedbackCounts] = useState<FeedbackCounts>({
@@ -13,7 +13,7 @@ export const HomePage: React.FC = () => {
     });
     const [clickCount, setClickCount] = useState<number>(0); // Local click counter
     const [flipped, setFlipped] = useState<boolean>(false); // Track if buttons are flipped
-    const { addSnackbar } = useSnackbarQueue();
+    const {addSnackbar} = useSnackbarQueue();
 
     // Load initial feedback counts
     useEffect(() => {
@@ -74,65 +74,65 @@ export const HomePage: React.FC = () => {
                 p: 4,
             }}
         >
-            <Typography variant="h2" sx={{ mb: 4 }}>
+            <Typography variant="h2" sx={{mb: 4}}>
                 Welcome to Tyler's Corner of the Web!
             </Typography>
-            <Typography variant="h5" sx={{ mb: 6, maxWidth: 600 }}>
+            <Typography variant="h5" sx={{mb: 6, maxWidth: 600}}>
                 A place for my thoughts, photos, and projects, curated for anyone curious enough to visit. Thanks for
                 stopping by—I'd love to hear your feedback below!
             </Typography>
 
-            <Box sx={{ display: "flex", gap: 3 }}>
+            <Box sx={{display: "flex", gap: 3}}>
                 {flipped ? (
                     <>
-                        <Box sx={{ textAlign: "center" }}>
+                        <Box sx={{textAlign: "center"}}>
                             <IconButton
                                 color="primary"
                                 onClick={() => handleFeedback("thumbs_down")}
                                 sx={{
-                                    "&:hover": { color: "error.main" },
+                                    "&:hover": {color: "error.main"},
                                 }}
                             >
-                                <ThumbDownAltIcon />
+                                <ThumbDownAltIcon/>
                             </IconButton>
                             <Typography variant="body1">{feedbackCounts.thumbs_down}</Typography>
                         </Box>
-                        <Box sx={{ textAlign: "center" }}>
+                        <Box sx={{textAlign: "center"}}>
                             <IconButton
                                 color="primary"
                                 onClick={() => handleFeedback("thumbs_up")}
                                 sx={{
-                                    "&:hover": { color: "success.main" },
+                                    "&:hover": {color: "success.main"},
                                 }}
                             >
-                                <ThumbUpAltIcon />
+                                <ThumbUpAltIcon/>
                             </IconButton>
                             <Typography variant="body1">{feedbackCounts.thumbs_up}</Typography>
                         </Box>
                     </>
                 ) : (
                     <>
-                        <Box sx={{ textAlign: "center" }}>
+                        <Box sx={{textAlign: "center"}}>
                             <IconButton
                                 color="primary"
                                 onClick={() => handleFeedback("thumbs_up")}
                                 sx={{
-                                    "&:hover": { color: "success.main" },
+                                    "&:hover": {color: "success.main"},
                                 }}
                             >
-                                <ThumbUpAltIcon />
+                                <ThumbUpAltIcon/>
                             </IconButton>
                             <Typography variant="body1">{feedbackCounts.thumbs_up}</Typography>
                         </Box>
-                        <Box sx={{ textAlign: "center" }}>
+                        <Box sx={{textAlign: "center"}}>
                             <IconButton
                                 color="primary"
                                 onClick={() => handleFeedback("thumbs_down")}
                                 sx={{
-                                    "&:hover": { color: "error.main" },
+                                    "&:hover": {color: "error.main"},
                                 }}
                             >
-                                <ThumbDownAltIcon />
+                                <ThumbDownAltIcon/>
                             </IconButton>
                             <Typography variant="body1">{feedbackCounts.thumbs_down}</Typography>
                         </Box>

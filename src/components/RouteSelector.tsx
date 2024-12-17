@@ -25,7 +25,7 @@ export const MenuButton: React.FC<{ onClick: () => void }> = ({onClick}) => {
                     },
                 }}
             >
-                <MenuIcon fontSize="large" />
+                <MenuIcon fontSize="large"/>
             </IconButton>
         </Box>
     );
@@ -65,7 +65,7 @@ export const RouteSelector: React.FC = () => {
 
     return (
         <>
-            <MenuButton onClick={handleOpen} />
+            <MenuButton onClick={handleOpen}/>
 
             <Modal
                 open={open}

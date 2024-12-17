@@ -6,7 +6,6 @@ import theme from "./theme";
 import {SnackbarProvider} from "./hooks/useSnackbarQueue.hook";
 import {AppRouter} from "./AppRouter";
 import {HashRouter} from "react-router-dom";
-import {BackButton} from "./components/BackButton";
 
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
                 <SnackbarProvider>
                     <CssBaseline/>
                     <RouteSelector/>
-                    <BackButton />
                     <AppRouter/>
                 </SnackbarProvider>
             </ThemeProvider>

@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from "react";
-import { usePhotosLedger } from "../hooks/use-photos-ledger.hook";
-import { ImageGallery } from "../components/ImageGallery";
-import { PhotoModal } from "../components/PhotoModal";
+import React, {useMemo, useState} from "react";
+import {usePhotosLedger} from "../hooks/use-photos-ledger.hook";
+import {ImageGallery} from "../components/ImageGallery";
+import {PhotoModal} from "../components/PhotoModal";
 
 export const PhotosPage = () => {
     const [dateToView, setDateToView] = useState<string | null>(null);
@@ -29,7 +29,7 @@ export const PhotosPage = () => {
 
     return (
         <>
-            <ImageGallery ledger={ledger} onImageClick={handleOpen} />
+            <ImageGallery ledger={ledger} onImageClick={handleOpen}/>
             {dateToView && (
                 <PhotoModal
                     onClose={handleClose}

@@ -3,7 +3,7 @@ import {Box, CircularProgress, Container} from "@mui/material";
 import {styled, Theme} from "@mui/material/styles";
 import {AnimatePresence, motion} from "framer-motion";
 
-const StyledContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
+const StyledContainer = styled(Container)(({theme}: { theme: Theme }) => ({
     display: "flex",
     maxWidth: "100vw",
     flexDirection: "column",
@@ -19,7 +19,7 @@ const StyledContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
     backgroundColor: theme.palette.background.default, // Use theme's background
 }));
 
-const IframeWrapper = styled(Box)(({ theme }: { theme: Theme }) => ({
+const IframeWrapper = styled(Box)(() => ({
     flexGrow: 1,
     display: "flex",
     justifyContent: "center",
@@ -42,10 +42,10 @@ export const MusicPage: FC = () => {
     const [isLoaded, setIsLoaded] = useState(false); // Track iframe content load state
 
     const loaderVariants = {
-        initial: { opacity: 1 },
+        initial: {opacity: 1},
         exit: {
             opacity: 0,
-            transition: { duration: 0.3, ease: "easeInOut" },
+            transition: {duration: 0.3, ease: "easeInOut"},
         },
     };
 
@@ -86,7 +86,7 @@ export const MusicPage: FC = () => {
                                 height: "100%",
                             }}
                         >
-                            <CircularProgress color="primary" />
+                            <CircularProgress color="primary"/>
                         </motion.div>
                     )}
                 </AnimatePresence>

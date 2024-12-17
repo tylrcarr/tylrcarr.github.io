@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
-import {Box, Typography, IconButton, useTheme, Theme} from "@mui/material";
+import React, {createContext, useCallback, useContext, useState} from "react";
+import {Box, IconButton, Theme, Typography, useTheme} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 export enum SnackbarColor {
@@ -41,16 +41,15 @@ const getColorFromEnum = (color: SnackbarColor, theme: Theme) => {
     }
 };
 
-export const SnackbarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const SnackbarProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
     const theme = useTheme();
     const [snackbars, setSnackbars] = useState<Snackbar[]>([]);
-
 
 
     const addSnackbar = useCallback((message: string, color: SnackbarColor) => {
         const id = Date.now();
         const bgColor = getColorFromEnum(color, theme);
-        setSnackbars((prev) => [...prev, { id, message, color: bgColor }]);
+        setSnackbars((prev) => [...prev, {id, message, color: bgColor}]);
 
         // Auto-dismiss after 3 seconds
         setTimeout(() => {
@@ -63,7 +62,7 @@ export const SnackbarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }, []);
 
     return (
-        <SnackbarContext.Provider value={{ addSnackbar }}>
+        <SnackbarContext.Provider value={{addSnackbar}}>
             {children}
             {/* Snackbars Container */}
             <Box
@@ -110,7 +109,7 @@ export const SnackbarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
                                 color: theme.palette.getContrastText(snackbar.color),
                             }}
                         >
-                            <CloseIcon fontSize="small" />
+                            <CloseIcon fontSize="small"/>
                         </IconButton>
                     </Box>
                 ))}

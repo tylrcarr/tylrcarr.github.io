@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, IconButton } from "@mui/material";
+import {Box, IconButton} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate, useLocation } from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 export const BackButton: React.FC = () => {
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ export const BackButton: React.FC = () => {
                     },
                 }}
             >
-                <ArrowBackIcon fontSize="large" />
+                <ArrowBackIcon fontSize="large"/>
             </IconButton>
         </Box>
     );

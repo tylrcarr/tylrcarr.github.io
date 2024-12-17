@@ -12,7 +12,7 @@ export const ArtPage = () => {
                 height: '100vh', // Make sure the parent fills the screen
             }}
         >
-            <Refrigerator />
+            <Refrigerator/>
         </Box>
     );
 }

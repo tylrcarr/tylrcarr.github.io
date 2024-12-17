@@ -21,18 +21,18 @@ const WheelContainer = styled(Box)({
     transform: "translate(-50%, -50%)",
 });
 
-const Section = styled("path")<{ isClosing: boolean }>(({ theme, isClosing }) => ({
+const Section = styled("path")<{ isClosing: boolean }>(({theme, isClosing}) => ({
     fill: theme.palette.primary.main,
     transformOrigin: "50% 50%",
     animation: `${isClosing ? "shrinkSections" : "growSections"} ${CIRCLE_ANIMATION_DURATION}ms ease-out forwards`,
     animationDelay: isClosing ? `${TEXT_ICON_FADE_DURATION}ms` : "0s", // shrink after text fade out (0.15s)
     "@keyframes growSections": {
-        "0%": { transform: "scale(0)" },
-        "100%": { transform: "scale(1)" },
+        "0%": {transform: "scale(0)"},
+        "100%": {transform: "scale(1)"},
     },
     "@keyframes shrinkSections": {
-        "0%": { transform: "scale(1)" },
-        "100%": { transform: "scale(0)" },
+        "0%": {transform: "scale(1)"},
+        "100%": {transform: "scale(0)"},
     },
     transition: "fill 0.2s ease-in-out",
     cursor: "pointer",
@@ -41,34 +41,34 @@ const Section = styled("path")<{ isClosing: boolean }>(({ theme, isClosing }) =>
     },
 }));
 
-const SolidBackgroundCircle = styled("circle")<{ isClosing: boolean }>(({ theme, isClosing }) => ({
+const SolidBackgroundCircle = styled("circle")<{ isClosing: boolean }>(({theme, isClosing}) => ({
     fill: theme.palette.primary.main,
     transformOrigin: "50% 50%",
     animation: `${isClosing ? "shrinkCircle" : "growCircle"} ${CIRCLE_ANIMATION_DURATION}ms ease-out forwards`,
     animationDelay: isClosing ? `${TEXT_ICON_FADE_DURATION}ms` : "0s",
     "@keyframes growCircle": {
-        "0%": { transform: "scale(0)" },
-        "100%": { transform: "scale(1)" },
+        "0%": {transform: "scale(0)"},
+        "100%": {transform: "scale(1)"},
     },
     "@keyframes shrinkCircle": {
-        "0%": { transform: "scale(1)" },
-        "100%": { transform: "scale(0)" },
+        "0%": {transform: "scale(1)"},
+        "100%": {transform: "scale(0)"},
     },
 }));
 
-const CenterCircle = styled("circle")<{ isClosing: boolean }>(({ theme, isClosing }) => ({
+const CenterCircle = styled("circle")<{ isClosing: boolean }>(({theme, isClosing}) => ({
     fill: theme.palette.secondary.main,
     cursor: "pointer",
     transformOrigin: "50% 50%",
     animation: `${isClosing ? "shrinkCenterCircle" : "growCenterCircle"} ${CIRCLE_ANIMATION_DURATION}ms ease-out forwards`,
     animationDelay: isClosing ? `${TEXT_ICON_FADE_DURATION}ms` : "0s",
     "@keyframes growCenterCircle": {
-        "0%": { transform: "scale(0)" },
-        "100%": { transform: "scale(1)" },
+        "0%": {transform: "scale(0)"},
+        "100%": {transform: "scale(1)"},
     },
     "@keyframes shrinkCenterCircle": {
-        "0%": { transform: "scale(1)" },
-        "100%": { transform: "scale(0)" },
+        "0%": {transform: "scale(1)"},
+        "100%": {transform: "scale(0)"},
     },
     transition: "fill 0.2s ease-in-out",
     "&:hover": {
@@ -76,7 +76,7 @@ const CenterCircle = styled("circle")<{ isClosing: boolean }>(({ theme, isClosin
     },
 }));
 
-const XText = styled("text")<{ isClosing: boolean }>(({ theme, isClosing }) => ({
+const XText = styled("text")<{ isClosing: boolean }>(({theme, isClosing}) => ({
     fill: theme.palette.text.primary,
     fontSize: "18px",
     fontWeight: "bold",
@@ -89,16 +89,16 @@ const XText = styled("text")<{ isClosing: boolean }>(({ theme, isClosing }) => (
         : `fadeInText ${TEXT_ICON_FADE_DURATION}ms ease-out forwards`,
     animationDelay: isClosing ? "0s" : `${CIRCLE_ANIMATION_DURATION}ms`, // fade in after circles grown (0.25s)
     "@keyframes fadeInText": {
-        "0%": { opacity: 0 },
-        "100%": { opacity: 1 },
+        "0%": {opacity: 0},
+        "100%": {opacity: 1},
     },
     "@keyframes fadeOutText": {
-        "0%": { opacity: 1 },
-        "100%": { opacity: 0 },
+        "0%": {opacity: 1},
+        "100%": {opacity: 0},
     },
 }));
 
-const LabelText = styled("text")<{ isClosing: boolean }>(({ theme, isClosing }) => ({
+const LabelText = styled("text")<{ isClosing: boolean }>(({theme, isClosing}) => ({
     fill: theme.palette.text.primary,
     fontSize: "14px",
     fontWeight: "normal",
@@ -111,16 +111,16 @@ const LabelText = styled("text")<{ isClosing: boolean }>(({ theme, isClosing }) 
         : `fadeInText ${TEXT_ICON_FADE_DURATION}ms ease-out forwards`,
     animationDelay: isClosing ? "0s" : `${CIRCLE_ANIMATION_DURATION}ms`,
     "@keyframes fadeInText": {
-        "0%": { opacity: 0 },
-        "100%": { opacity: 1 },
+        "0%": {opacity: 0},
+        "100%": {opacity: 1},
     },
     "@keyframes fadeOutText": {
-        "0%": { opacity: 1 },
-        "100%": { opacity: 0 },
+        "0%": {opacity: 1},
+        "100%": {opacity: 0},
     },
 }));
 
-const IconWrapper = styled("foreignObject")<{ isClosing: boolean }>(({ isClosing }) => ({
+const IconWrapper = styled("foreignObject")<{ isClosing: boolean }>(({isClosing}) => ({
     pointerEvents: "none",
     opacity: 0,
     animation: isClosing
@@ -128,12 +128,12 @@ const IconWrapper = styled("foreignObject")<{ isClosing: boolean }>(({ isClosing
         : `fadeInIcons ${TEXT_ICON_FADE_DURATION}ms ease-out forwards`,
     animationDelay: isClosing ? "0s" : `${CIRCLE_ANIMATION_DURATION}ms`,
     "@keyframes fadeInIcons": {
-        "0%": { opacity: 0 },
-        "100%": { opacity: 1 },
+        "0%": {opacity: 0},
+        "100%": {opacity: 1},
     },
     "@keyframes fadeOutIcons": {
-        "0%": { opacity: 1 },
-        "100%": { opacity: 0 },
+        "0%": {opacity: 1},
+        "100%": {opacity: 0},
     },
 }));
 
@@ -181,9 +181,9 @@ export const WheelSelector: React.FC<WheelSelectorProps> = ({
     const anglePerSegment = 360 / items.length;
 
     return (
-        <WheelContainer sx={{ width: outerRadius * 2, height: outerRadius * 2 }}>
+        <WheelContainer sx={{width: outerRadius * 2, height: outerRadius * 2}}>
             <svg width={outerRadius * 2} height={outerRadius * 2}>
-                <SolidBackgroundCircle cx={center} cy={center} r={outerRadius} isClosing={isClosing} />
+                <SolidBackgroundCircle cx={center} cy={center} r={outerRadius} isClosing={isClosing}/>
                 {items.map((item, index) => {
                     const startAngle = index * anglePerSegment - 90;
                     const endAngle = startAngle + anglePerSegment;
@@ -194,7 +194,7 @@ export const WheelSelector: React.FC<WheelSelectorProps> = ({
                     const iconY = center + ringMidpointRadius * Math.sin(radians(angle));
 
                     return (
-                        <g key={index} onClick={item.onClick} style={{ cursor: "pointer" }}>
+                        <g key={index} onClick={item.onClick} style={{cursor: "pointer"}}>
                             <Section
                                 d={calculatePath(startAngle, endAngle, outerRadius, center)}
                                 isClosing={isClosing}
@@ -214,8 +214,8 @@ export const WheelSelector: React.FC<WheelSelectorProps> = ({
                         </g>
                     );
                 })}
-                <g onClick={onRequestClose} style={{ cursor: "pointer" }}>
-                    <CenterCircle cx={center} cy={center} r={INNER_RADIUS} isClosing={isClosing} />
+                <g onClick={onRequestClose} style={{cursor: "pointer"}}>
+                    <CenterCircle cx={center} cy={center} r={INNER_RADIUS} isClosing={isClosing}/>
                     <XText x={center} y={center} isClosing={isClosing}>
                         x
                     </XText>

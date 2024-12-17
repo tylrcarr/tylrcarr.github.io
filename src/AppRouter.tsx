@@ -1,30 +1,27 @@
-import React, { FC, useState } from "react";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ROUTES } from "./constants/routes"; // Route definitions
+import React, {FC, useState} from "react";
+import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
+import {motion} from "framer-motion";
+import {ROUTES} from "./constants/routes"; // Route definitions
 
 export const AppRouter: FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
     const [animationLock, setAnimationLock] = useState(false); // Prevent overlapping animations
-    const directionRef = React.useRef(0); // Track swipe direction: -2 (up), 2 (down), 1 (left), -1 (right)
+    const directionRef = React.useRef(0); // Track swipe direction: 1 (left), -1 (right)
 
-    // Framer Motion variants for page transitions
+    // Framer Motion variants for page transitions (horizontal only)
     const pageVariants = {
         initial: (direction: number) => ({
-            x: direction === 1 || direction === -1 ? (direction === 1 ? "100%" : "-100%") : 0, // Horizontal swipes
-            y: direction === 2 || direction === -2 ? (direction === 2 ? "-100%" : "100%") : 0, // Vertical swipes (matching the swipe's direction)
+            x: direction === 1 ? "100%" : direction === -1 ? "-100%" : 0, // Horizontal swipe
             opacity: 0, // Fade in
         }),
         animate: {
             x: 0,
-            y: 0,
             opacity: 1, // Fully visible on entry
         },
         exit: (direction: number) => ({
-            x: direction === 1 || direction === -1 ? (direction === 1 ? "-100%" : "100%") : 0,
-            y: direction === 2 || direction === -2 ? (direction === 2 ? "100%" : "-100%") : 0, // Vertical exit (same as entry direction)
+            x: direction === 1 ? "-100%" : direction === -1 ? "100%" : 0, // Horizontal exit
             opacity: 0, // Fade out
         }),
     };
@@ -34,28 +31,13 @@ export const AppRouter: FC = () => {
         ease: "easeInOut",
     };
 
-    // Handle swipe gestures
-    const handleSwipe = (event: any, info: { offset: { x: number; y: number } }) => {
+    // Handle swipe gestures (horizontal only)
+    const handleSwipe = (event: any, info: { offset: { x: number } }) => {
         if (animationLock) return; // Prevent overlapping animations
-        const { x, y } = info.offset;
+        const {x} = info.offset;
 
-        // **Swipe Down**: Current and next page both swipe down
-        if (y > 100 && location.pathname === "/") {
-            setAnimationLock(true);
-            directionRef.current = 2; // Swipe downward
-            navigate("/me"); // Move to "/me"
-            setTimeout(() => setAnimationLock(false), 500);
-            return;
-        }
-
-        // **Swipe Up**: Current and next page both swipe up
-        if (y < -100 && location.pathname === "/me") {
-            setAnimationLock(true);
-            directionRef.current = -2; // Swipe upward
-            navigate("/"); // Move back to "/"
-            setTimeout(() => setAnimationLock(false), 500);
-            return;
-        }
+        // Disable swipe for Sandbox route
+        if (location.pathname === "/sandbox") return;
 
         // **Swipe Left**: Standard Horizontal Forward
         if (x < -100) {
@@ -83,9 +65,9 @@ export const AppRouter: FC = () => {
             exit="exit"
             variants={pageVariants} // Animation variants
             transition={pageTransition} // Swipe animation duration/speed
-            drag={true} // Enable swipe gestures
-            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-            onDragEnd={handleSwipe} // Detect direction of swipe at swipe end
+            drag={location.pathname === "/sandbox" ? false : "x"} // Disable drag for Sandbox
+            dragConstraints={{left: 0, right: 0}} // Horizontal drag only
+            onDragEnd={handleSwipe} // Detect horizontal swipe direction
             style={{
                 width: "100%",
                 height: "100%",
@@ -95,7 +77,7 @@ export const AppRouter: FC = () => {
         >
             <Routes location={location} key={location.key}>
                 {ROUTES.map((route) => (
-                    <Route key={route.path} path={route.path} element={route.element} />
+                    <Route key={route.path} path={route.path} element={route.element}/>
                 ))}
             </Routes>
         </motion.div>

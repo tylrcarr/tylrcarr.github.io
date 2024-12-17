@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Card, CardActionArea, CardContent, Typography, useTheme } from "@mui/material";
-import { HelpOutline } from "@mui/icons-material";
+import {Box, Card, CardActionArea, CardContent, Typography, useTheme} from "@mui/material";
+import {HelpOutline} from "@mui/icons-material";
 
 export const ToolsPage: React.FC = () => {
     const theme = useTheme(); // Access your MUI theme

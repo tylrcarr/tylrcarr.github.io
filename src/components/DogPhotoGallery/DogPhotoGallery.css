@@ -1,0 +1,22 @@
+.my-masonry-grid {
+    display: flex;
+    margin-left: -8px; /* Adjust for column gap */
+    width: auto;
+}
+
+.my-masonry-grid_column {
+    padding-left: 8px; /* Adjust for column gap */
+    background-clip: padding-box;
+}
+
+.my-masonry-grid_column > div {
+    margin-bottom: 8px; /* Space between rows */
+}
+
+img {
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
