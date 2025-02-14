@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, IconButton} from "@mui/material";
+import {IconButton} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {useLocation, useNavigate} from "react-router-dom";
 
@@ -15,26 +15,17 @@ export const BackButton: React.FC = () => {
     }
 
     return (
-        <Box
+        <IconButton
+            onClick={() => navigate(-1)} // Navigate back
             sx={{
-                position: "absolute",
-                top: 16, // Positioned at the top
-                left: 16, // Positioned on the left
-                zIndex: 10,
+                color: "secondary.main", // Sets the icon color to secondary
+                transition: "color 0.3s ease", // Smooth color transition
+                "&:hover": {
+                    color: "secondary.light", // Secondary hover effect
+                },
             }}
         >
-            <IconButton
-                onClick={() => navigate(-1)} // Navigate back
-                sx={{
-                    color: "secondary.main", // Sets the icon color to secondary
-                    transition: "color 0.3s ease", // Smooth color transition
-                    "&:hover": {
-                        color: "secondary.light", // Secondary hover effect
-                    },
-                }}
-            >
-                <ArrowBackIcon fontSize="large"/>
-            </IconButton>
-        </Box>
+            <ArrowBackIcon fontSize="large" />
+        </IconButton>
     );
 };

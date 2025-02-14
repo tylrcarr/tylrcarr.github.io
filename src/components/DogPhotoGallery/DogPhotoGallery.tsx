@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Masonry from "react-masonry-css";
 import Box from "@mui/material/Box";
 import {PhotoModal} from "../PhotoModal";
-import {useDogPhotos} from "../../hooks/useDogPhotos";
+import {useDogPhotos} from "../../hooks/use-dog-photos.hook";
 import "./DogPhotoGallery.css";
 
 export const DogPhotoGallery: React.FC = () => {
@@ -37,7 +37,7 @@ export const DogPhotoGallery: React.FC = () => {
                     >
                         <img
                             src={`/public-photos/${photo.thumbnail}`}
-                            alt={`Dog Photo ${index}`}
+                            alt={`Dog ${index}`}
                             width={photo.thumbnailWidth}
                             height={photo.thumbnailHeight}
                             style={{

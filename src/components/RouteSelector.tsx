@@ -3,7 +3,7 @@ import {Backdrop, Box, IconButton, Modal} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import {WheelSelector} from "./WheelSelector";
 import {ROUTES} from "../constants/routes";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 export const MenuButton: React.FC<{ onClick: () => void }> = ({onClick}) => {
     return (
@@ -25,7 +25,7 @@ export const MenuButton: React.FC<{ onClick: () => void }> = ({onClick}) => {
                     },
                 }}
             >
-                <MenuIcon fontSize="large"/>
+                <MenuIcon fontSize="large" />
             </IconButton>
         </Box>
     );
@@ -36,6 +36,7 @@ export const RouteSelector: React.FC = () => {
     const [open, setOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const items = ROUTES
         .filter(route => !route.hideFromMainNav)
@@ -65,7 +66,7 @@ export const RouteSelector: React.FC = () => {
 
     return (
         <>
-            <MenuButton onClick={handleOpen}/>
+            {location.pathname !== "/" && <MenuButton onClick={handleOpen} />}
 
             <Modal
                 open={open}

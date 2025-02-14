@@ -3,7 +3,7 @@ import {Box, IconButton, Typography} from "@mui/material";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import {FeedbackCounts, FeedbackService} from "../services/FeedbackService";
-import {SnackbarColor, useSnackbarQueue} from "../hooks/useSnackbarQueue.hook";
+import {SnackbarColor, useSnackbarQueue} from "../hooks/use-snackbar-queue.hook";
 import {RESPONSES} from "../constants/responses";
 
 export const HomePage: React.FC = () => {

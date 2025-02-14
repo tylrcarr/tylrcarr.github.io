@@ -36,8 +36,8 @@ export const AppRouter: FC = () => {
         if (animationLock) return; // Prevent overlapping animations
         const {x} = info.offset;
 
-        // Disable swipe for Sandbox route
-        if (location.pathname === "/sandbox") return;
+        // Disable swipe for Bulletin Board route
+        if (location.pathname === "/bulletin") return;
 
         // **Swipe Left**: Standard Horizontal Forward
         if (x < -100) {
@@ -65,7 +65,7 @@ export const AppRouter: FC = () => {
             exit="exit"
             variants={pageVariants} // Animation variants
             transition={pageTransition} // Swipe animation duration/speed
-            drag={location.pathname === "/sandbox" ? false : "x"} // Disable drag for Sandbox
+            drag={location.pathname === "/bulletin" ? false : "x"} // Disable drag for Sandbox
             dragConstraints={{left: 0, right: 0}} // Horizontal drag only
             onDragEnd={handleSwipe} // Detect horizontal swipe direction
             style={{

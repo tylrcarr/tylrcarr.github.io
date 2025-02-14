@@ -3,7 +3,7 @@ import './App.css';
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import {RouteSelector} from "./components/RouteSelector";
 import theme from "./theme";
-import {SnackbarProvider} from "./hooks/useSnackbarQueue.hook";
+import {SnackbarProvider} from "./hooks/use-snackbar-queue.hook";
 import {AppRouter} from "./AppRouter";
 import {HashRouter} from "react-router-dom";
 
@@ -13,9 +13,9 @@ function App() {
         <HashRouter>
             <ThemeProvider theme={theme}>
                 <SnackbarProvider>
-                    <CssBaseline/>
-                    <RouteSelector/>
-                    <AppRouter/>
+                    <CssBaseline />
+                    <RouteSelector />
+                    <AppRouter />
                 </SnackbarProvider>
             </ThemeProvider>
         </HashRouter>
