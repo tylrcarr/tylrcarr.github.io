@@ -78,19 +78,10 @@ const DOGS_ROUTE: AppRoute = {
 const TEST_ROUTE: AppRoute = {
     id: "bulletin",
     path: "/bulletin",
-    label: "Bulletin Board",
+    label: "Bulletin",
     icon: <Article />,
     element: <BulletinBoardPage />,
 };
-
-
-// const ABOUT_ROUTE: AppRoute = {
-//     id: "about",
-//     path: "/about",
-//     label: "About Me",
-//     icon: <ContactPageIcon />,
-//     element: <AboutPage />,
-// }
 
 const ROUTES: AppRoute[] = [
     ROOT_ROUTE,
