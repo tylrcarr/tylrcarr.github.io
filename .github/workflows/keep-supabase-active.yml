@@ -1,43 +1,16 @@
-name: Ping Supabase to Prevent Pausing
-
-on:
-  schedule:
-    - cron: '0 9 * * 1,4' # Runs at 9:00 AM UTC every Monday and Thursday
-  workflow_dispatch: # Allows manual triggering from the GitHub UI
-
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18' # Use Node.js 18
-
-      # Step 3: Install Supabase Client
-      - name: Install Supabase Client
-        run: npm install @supabase/supabase-js --force
-
-      # Step 4: Run a simple query to keep the database active
-      - name: Run Supabase Keep-Alive Query
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-        run: |
-          echo "const { createClient } = require('@supabase/supabase-js');
-          const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-          (async () => {
-            const { data, error } = await supabase.rpc('version');
-            if (error) {
-              console.error('Error:', error);
-              process.exit(1);
-            }
-            console.log('Supabase is active. PostgreSQL version:', data);
-          })();" > keep_alive.js
-          node keep_alive.js
+- name: Run Supabase Keep-Alive Query
+  env:
+    SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+    SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+  run: |
+    echo "const { createClient } = require('@supabase/supabase-js');
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+    (async () => {
+      const { data, error } = await supabase.from('pg_stat_user_tables').select('*').limit(1);
+      if (error) {
+        console.error('Error:', error);
+        process.exit(1);
+      }
+      console.log('Supabase is active. Table info:', data);
+    })();" > keep_alive.js
+    node keep_alive.js
