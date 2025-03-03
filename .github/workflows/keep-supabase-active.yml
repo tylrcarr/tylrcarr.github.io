@@ -33,11 +33,11 @@ jobs:
           echo "const { createClient } = require('@supabase/supabase-js');
           const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
           (async () => {
-            const { data, error } = await supabase.from('pg_stat_user_tables').select('*').limit(1);
+            const { data, error } = await supabase.from('markers').select('*').limit(1);
             if (error) {
               console.error('Error:', error);
               process.exit(1);
             }
-            console.log('Supabase is active. Table info:', data);
+            console.log('Supabase is active. Marker info:', data);
           })();" > keep_alive.js
           node keep_alive.js
