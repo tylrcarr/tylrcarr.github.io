@@ -7,7 +7,7 @@ export const DogsPage: React.FC = () => {
         <div style={{height: "100vh", overflowY: "auto"}}>
             <Container>
                 <Typography variant="h4" align="center" gutterBottom>
-                    dog(s)
+                    dogs (click for higher res)
                 </Typography>
                 <DogPhotoGallery/>
             </Container>

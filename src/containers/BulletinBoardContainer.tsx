@@ -1,5 +1,3 @@
-// src/containers/BulletinBoardContainer.tsx
-
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {LeafletMap} from '../components/LeafletMap';

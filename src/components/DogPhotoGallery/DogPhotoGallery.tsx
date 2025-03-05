@@ -26,30 +26,31 @@ export const DogPhotoGallery: React.FC = () => {
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column"
             >
-                {dogPhotos.map((photo, index) => (
-                    <Box
-                        key={index}
-                        sx={{
-                            cursor: "pointer",
-                            "&:hover": {opacity: 0.9, transition: "opacity 0.3s"},
-                        }}
-                        onClick={() => handleOpenModal(index)}
-                    >
-                        <img
-                            src={`/public-photos/${photo.thumbnail}`}
-                            alt={`Dog ${index}`}
-                            width={photo.thumbnailWidth}
-                            height={photo.thumbnailHeight}
-                            style={{
-                                display: "block",
-                                borderRadius: "4px",
-                                margin: 0,
-                                objectFit: "cover",
+                {dogPhotos
+                    .map((photo, index) => (
+                        <Box
+                            key={index}
+                            sx={{
+                                cursor: "pointer",
+                                "&:hover": {opacity: 0.9, transition: "opacity 0.3s"},
                             }}
-                            loading="lazy"
-                        />
-                    </Box>
-                ))}
+                            onClick={() => handleOpenModal(index)}
+                        >
+                            <img
+                                src={`/public-photos/${photo.thumbnail}`}
+                                alt={`Dog ${index}`}
+                                width={photo.thumbnailWidth}
+                                height={photo.thumbnailHeight}
+                                style={{
+                                    display: "block",
+                                    borderRadius: "4px",
+                                    margin: 0,
+                                    objectFit: "cover",
+                                }}
+                                loading="lazy"
+                            />
+                        </Box>
+                    ))}
             </Masonry>
 
             {selectedIndex !== null && (

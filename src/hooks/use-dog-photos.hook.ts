@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 
 type DogPhoto = {
     thumbnail: string;
@@ -19,5 +19,8 @@ export const useDogPhotos = () => {
             .catch((err) => console.error("Error fetching dog photos:", err));
     }, []);
 
-    return dogPhotos;
+    return useMemo(
+        () => [...dogPhotos].sort((a, b) => b.thumbnail.localeCompare(a.thumbnail)),
+        [dogPhotos]
+    );
 };
