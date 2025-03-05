@@ -7,13 +7,13 @@ const StyledContainer = styled(Container)(({theme}: { theme: Theme }) => ({
     display: "flex",
     maxWidth: "100vw",
     flexDirection: "column",
-    height: "90vh", // Full viewport height
+    height: "90dvh", // Full viewport height
     padding: theme.spacing(2),
     boxSizing: "border-box",
     margin: 0, // Ensure no extra space outside the container
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "4vh",
+    marginTop: "4dvh",
     marginBottom: 0,
     overflow: "hidden", // Prevent scroll bars
     backgroundColor: theme.palette.background.default, // Use theme's background
