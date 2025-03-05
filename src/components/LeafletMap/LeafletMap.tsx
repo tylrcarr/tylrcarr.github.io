@@ -17,7 +17,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapWrapper = styled(Box)(({theme}) => ({
-    height: '100vh',
+    height: '100dvh',
     width: '100%',
 }));
 

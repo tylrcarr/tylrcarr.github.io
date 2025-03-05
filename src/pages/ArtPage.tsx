@@ -9,7 +9,7 @@ export const ArtPage = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '100vh', // Make sure the parent fills the screen
+                height: '100dvh', // Make sure the parent fills the screen
             }}
         >
             <Refrigerator/>

@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 // A styled container with a cool gradient background
 const RootContainer = styled(Box)(({theme}) => ({
-    height: '100vh',
+    height: '100dvh',
     background: 'linear-gradient(135deg, #f6d365, #fda085)',
     display: 'flex',
     justifyContent: 'center',

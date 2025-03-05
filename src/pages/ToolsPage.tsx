@@ -9,7 +9,7 @@ export const ToolsPage: React.FC = () => {
         <Box
             sx={{
                 width: "100%",
-                height: "100vh",
+                height: "100dvh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",

@@ -32,7 +32,7 @@ export const BulletinBoardContainer: React.FC = () => {
     }
 
     return (
-        <Box sx={{height: '100vh', width: '100%', position: 'relative'}}>
+        <Box sx={{height: '100dvh', width: '100%', position: 'relative'}}>
             <DrawingModal onClose={() => setClickLocation(null)} open={!!clickLocation} onSave={onDrawingSave} />
             {!clickLocation && (<Box sx={{
                 width: "100vw",

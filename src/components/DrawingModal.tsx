@@ -94,7 +94,7 @@ export const DrawingModal: React.FC<DrawingModalProps> = ({
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        height: "100vh",
+                        height: "100dvh",
                     }}
                 >
                     {/* STEP 1: Choose Option */}
